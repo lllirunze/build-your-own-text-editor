@@ -6,6 +6,7 @@
 
 struct termios orig_termios;
 
+void die(const char *s);
 void disableRawMode();
 void enableRawMode();
 
@@ -27,6 +28,11 @@ int main() {
 
 	return 0;
 
+}
+
+void die(const char *s) {
+	perror(s);
+	exit(1);
 }
 
 void disableRawMode() {
